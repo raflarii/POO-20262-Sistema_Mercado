@@ -1,6 +1,5 @@
 # Sistema de Caixa de Supermercado
 
-**Objetivo**
 Este projeto implementa um sistema automatizado de gerenciamento de caixa de supermercado utilizando Python. O foco principal é a aplicação prática de conceitos de Programação Orientada a Objetos (POO), como herança, polimorfismo, classes abstratas e encapsulamento, através de uma arquitetura modular.
 
 **Funcionalidades**
@@ -15,10 +14,10 @@ Este projeto implementa um sistema automatizado de gerenciamento de caixa de sup
 
 **Estrutura do Projeto**
 
-* `src/`: Diretório com as classes principais do sistema (`produto.py`, `funcionario.py`, `estoque.py`, `caixa.py`, `sistema.py`).
-* `data/`: Armazena o banco de dados SQLite ou arquivos `.txt` contendo o inventário e histórico.
-* `tests/`: Scripts para testar o comportamento das classes de forma isolada.
-* `main.py`: Ponto de entrada que inicializa as instâncias e roda a interface do sistema.
-* `README.md`: Documentação estrutural e objetivos do projeto.
+`src/`: Diretório com as classes principais do sistema (`produto.py`, `funcionario.py`, `estoque.py`, `caixa.py`, `sistema.py`).
+`data/`: Armazena o banco de dados SQLite ou arquivos `.txt` contendo o inventário e histórico.
+`tests/`: Scripts para testar o comportamento das classes de forma isolada.
+`main.py`: Ponto de entrada que inicializa as instâncias e roda a interface do sistema.
+`README.md`: Documentação estrutural e objetivos do projeto.
 
 

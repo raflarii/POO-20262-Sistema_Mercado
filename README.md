@@ -1,6 +1,6 @@
-# Sistema de Caixa de Supermercado
+# Sistema de Totem de Caixa de Supermercado
 
-Este projeto implementa um sistema automatizado de gerenciamento de caixa de supermercado utilizando Python. O foco principal é a aplicação prática de conceitos de Programação Orientada a Objetos (POO), como herança, polimorfismo, classes abstratas e encapsulamento, através de uma arquitetura modular.
+Este repositório contém os artefatos do sistema de Totem de Supermercado, um sistema de autoatendimento e também de caixa para facilitar a experiência do cliente e apoiar funcionários no gerenciamento de estoque e vendas utilizando Python. O foco principal é a aplicação prática de conceitos de Programação Orientada a Objetos (POO), como herança, polimorfismo, classes abstratas e encapsulamento, através de uma arquitetura modular.
 
 **Funcionalidades**
 * Gestão de Produtos

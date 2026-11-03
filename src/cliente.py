@@ -30,11 +30,11 @@ class Cliente:
         print(f"Total gasto: R$ {self.__total_gasto:.2f}")
 
     def salvar_historico(self):
-        os.makedirs("data", exist_ok=True) # a biblioteca os é usado para direcionar os arquivos .txt para a pasta desejada
+        os.makedirs("data", exist_ok=True) 
         nome_arquivo = f"data/historico_{self.__cpf}.txt"
         
         try:
-            with open(nome_arquivo, "w", encoding="utf-8") as arquivo: # nesta linha, o bloco with 
+            with open(nome_arquivo, "w", encoding="utf-8") as arquivo: 
                 arquivo.write(f"Cliente: {self.__nome} ({self.__cpf})\n")
                 arquivo.write("Compras:\n")
                 for item in self.__historico_compras:
@@ -53,3 +53,28 @@ class Cliente:
                         self.__historico_compras.append(linha[2:].strip())
         except FileNotFoundError:
             print("Nenhum histórico encontrado para este cliente.")
+
+
+
+def carregar_clientes_do_txt(caminho_arquivo: str):
+    lista_clientes = [] 
+    
+    try:
+        with open(caminho_arquivo, "r", encoding="utf-8") as arquivo:
+            for linha in arquivo:
+                linha = linha.strip()
+                if not linha:
+                    continue 
+                
+                # Desempacota seguindo a ordem do seu txt: CPF primeiro, Nome depois
+                cpf, nome = linha.split()
+                
+                # Instancia a classe passando os parâmetros na ordem que o __init__ exige
+                lista_clientes.append(Cliente(nome, cpf))
+                
+    except FileNotFoundError:
+        print(f"Aviso: O arquivo '{caminho_arquivo}' não foi encontrado.")
+    except ValueError:
+        print("Erro: O arquivo txt deve conter CPF e Nome separados por espaço.")
+        
+    return lista_clientes

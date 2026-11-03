@@ -16,8 +16,7 @@ Este projeto implementa um sistema automatizado de gerenciamento de caixa de sup
 
 * `src/`: diretório com as classes principais do sistema (`produto.py`, `funcionario.py`, `estoque.py`, `caixa.py`, `sistema.py`).
 * `data/`: armazena os arquivos `.txt` contendo o inventário e histórico.
-* `tests/`: scripts para testar o comportamento das classes de forma isolada.
-* `main.py`: ponto de entrada que inicializa as instâncias e roda a interface do sistema.
+* `docs/`: pasta usada para armazenar as instruções, modelos do relatório e o relatório final.
 * `README.md`: documentação estrutural e objetivos do projeto.
 
 

@@ -70,7 +70,7 @@ def carregar_produtos_do_txt(caminho_arquivo: str):
                 id_prod, nome, preco, tipo = linha.split()
                 
                 id_prod = int(id_prod)
-                preco = float(preco) # Converte o preço de texto para decimal
+                preco = float(preco) # converte o preço de texto para decimal
                 
                 # polimorfismo na instanciação
                 if tipo == "Unitario":

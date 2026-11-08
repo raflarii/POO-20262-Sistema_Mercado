@@ -2,6 +2,7 @@ import os
 from funcionario import Gerente, OperadorCaixa
 from cliente import Cliente
 from estoque import Estoque
+from caixa import Caixa 
 
 class Sistema:
     """
@@ -25,8 +26,10 @@ class Sistema:
         self.estoque = Estoque()
 
     def limpar_ecra(self):
-        """Limpa o terminal dependendo do sistema operacional."""
+        import os
         os.system('cls' if os.name == 'nt' else 'clear')
+        
+        print('\033c', end='')
 
     def pausar(self):
         """Pausa a execução para que o usuário possa ler as mensagens do sistema."""
@@ -63,13 +66,37 @@ class Sistema:
                 print("\nErro: Por favor, digite apenas números inteiros.")
                 self.pausar()
 
+    def _login_cliente(self):
+        """Valida a existência do CPF na lista de clientes carregados."""
+        self.limpar_ecra()
+        print("--- LOGIN ---")
+
+        if not self.clientes:
+            print("Que pena! Não há nenhum cliente registrado. Por favor, registre-se primeiro.") 
+            self.pausar()
+            return        
+
+        cpf_input = input("Digite o seu CPF: ").strip()
+
+        for cliente in self.clientes: 
+            if cliente.cpf == cpf_input: 
+                self.cliente_logado = cliente
+                print(f"\nLogin efetuado com sucesso! Bem-vindo(a), {cliente.nome}.")
+                self.pausar()
+                
+                self._menu_compras_cliente()
+                return
+
+        print("\nCPF não encontrado no sistema.")
+        self.pausar()
+
     def _menu_cliente_principal(self):
         """Menu que direciona o cliente para o login ou registro."""
         while True:
             self.limpar_ecra()
             print("--- MENU DO CLIENTE ---")
             print("1. Fazer Login")
-            print("2. Criar Registo")
+            print("2. Criar Registro")
             print("3. Voltar")
 
             try:
@@ -80,7 +107,7 @@ class Sistema:
                     if self.cliente_logado:
                         self._menu_compras_cliente()
                 elif opcao == 2:
-                    self._registar_cliente()
+                    self._registrar_cliente()
                 elif opcao == 3:
                     break
                 else:
@@ -206,8 +233,8 @@ class Sistema:
                 if opcao == 1:
                     print("\nDirecionando para o Caixa...")
                     self.pausar()
-                    # self.caixa = Caixa(self.estoque)
-                    # self.caixa.iniciar_atendimento(self.cliente_logado)
+                    self.caixa = Caixa(self.estoque)
+                    self.caixa.iniciar_atendimento(self.cliente_logado)
                 elif opcao == 2:
                     self.limpar_ecra()
                     self.cliente_logado.mostrar_historico()

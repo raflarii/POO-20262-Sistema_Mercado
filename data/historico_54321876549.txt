@@ -1,0 +1,4 @@
+Cliente: Ana (54321876549)
+Compras:
+- Pao_Frances: 1 kg | Cafe: 3 un. | R$ 70.40 (pix)
+Total gasto: 70.40

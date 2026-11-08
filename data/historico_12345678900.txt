@@ -1,0 +1,4 @@
+Cliente: Maria (12345678900)
+Compras:
+- Cebola: 1 kg | Tomate_Carmem: 1 kg | R$ 10.50 (cartao)
+Total gasto: 10.50

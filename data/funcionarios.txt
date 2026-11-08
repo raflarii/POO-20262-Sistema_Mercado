@@ -1,4 +1,6 @@
-Larissa 3971 1234
-Bárbara 3972 1234
-Pedro 3973 1234
-Cecília 3974 1234
+# Nome | ID | Senha | Cargo 
+
+Larissa 3971 1234 Gerente
+Bárbara 3972 5678 Gerente
+Pedro 3973 9101 Gerente
+Cecília 3974 1213 Gerente

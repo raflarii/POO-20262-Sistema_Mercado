@@ -100,7 +100,7 @@ class Sistema:
         self.limpar_ecra()
         print("--- ACESSO RESTRITO ---")
         try:
-            id_func = int(input("ID: "))
+            id_func = int(input("ID: ").strip())
             senha = input("Senha: ")
 
             # procura o funcionário na lista carregada
@@ -114,6 +114,7 @@ class Sistema:
                 print(f"\nBem-vindo, {funcionario_encontrado.nome}!")
                 print(funcionario_encontrado.obter_permissoes())
                 self.pausar()
+                self._menu_gestao(funcionario_encontrado)
             else:
                 print("\nAcesso negado: Credenciais incorretas ou funcionário inexistente.")
                 self.pausar()
@@ -121,24 +122,52 @@ class Sistema:
             print("\nErro: O ID deve ser composto apenas por números.")
             self.pausar()
 
-    def _login_cliente(self):
-        """Valida a existência do CPF na lista de clientes carregados."""
-        self.limpar_ecra()
-        print("--- LOGIN ---")
-        cpf = input("Digite o seu CPF: ").strip()
-
-        for cliente in self.clientes:
-            if cliente.cpf == cpf:
-                self.cliente_logado = cliente
-                print("\nLogin efetuado com sucesso!")
+    def _menu_gestao(self, funcionario):
+        """Painel de controle com restrição de acesso por herança."""
+        while True:
+            self.limpar_ecra()
+            print(f"--- PAINEL DE CONTROLE: {funcionario.nome.upper()} ---")
+            
+            is_gerente = isinstance(funcionario, Gerente) # verifica de qual classe o objeto veio
+            
+            if is_gerente:
+                print("1. Repor Estoque (Exclusivo Gerência)")
+                
+            print("2. Visualizar Estoque Completo")
+            print("3. Fazer Logout")
+            
+            try:
+                opcao = int(input("\nEscolha uma opção: ").strip())
+                
+                if opcao == 1 and is_gerente:
+                    self.limpar_ecra()
+                    self.estoque.repor_item() # aciona a função interativa de reposição do estoque
+                    self.pausar()
+                    
+                elif opcao == 1 and not is_gerente:
+                    print("\nErro: Acesso negado. Opção restrita à gerência.")
+                    self.pausar()
+                    
+                elif opcao == 2:
+                    self.limpar_ecra()
+                    self.estoque.listar_produtos()  # executa a função de listagem do estoque
+                    self.pausar()
+                    
+                elif opcao == 3:
+                    print(f"\nEncerrando a sessão de {funcionario.nome}...")
+                    self.pausar()
+                    break 
+                else:
+                    print("\nOpção inválida.")
+                    self.pausar()
+                    
+            except ValueError:
+                print("\nErro: Digite apenas o número da opção.")
                 self.pausar()
-                return
 
-        print("\nCPF não encontrado no sistema.")
-        self.pausar()
 
     def _registar_cliente(self):
-        """Grava um novo cliente na memória e atualiza o ficheiro .txt."""
+        """Grava um novo cliente na memória e atualiza o arquivo .txt."""
         self.limpar_ecra()
         print("--- NOVO REGISTRO :D ---")
         nome = input("Nome: ").strip()
@@ -156,9 +185,9 @@ class Sistema:
         try:
             with open("data/clientes.txt", "a", encoding="utf-8") as f:
                 f.write(f"\n{cpf} {nome}")
-            print("\nRegisto concluído!")
+            print("\nEba! Registro concluído!")
         except IOError:
-            print("\nErro ao gravar o ficheiro de clientes.")
+            print("\nUai... Falha ao gravar no arquivo de clientes.")
 
         self.pausar()
 
@@ -197,29 +226,37 @@ class Sistema:
         """Lê o arquivo e instancia a lista de funcionários."""
         lista = []
         try:
-            with open("data/funcionarios.txt", "r", encoding="utf-8") as f:
+            with open("data/funcionarios.txt", "r", encoding="utf-8-sig") as f:
                 for linha in f:
+                    linha = linha.strip()
                     if linha.strip():
-                        nome, id_func, senha, cargo = linha.split()
-                        if cargo == "Gerente":
-                            lista.append(Gerente(nome, int(id_func), senha))
-                        elif cargo == "Operador":
-                            lista.append(OperadorCaixa(nome, int(id_func), senha))
+                        partes = linha.split()
+                        if len(partes) == 4:
+                            nome, id_func, senha, cargo = partes
+                            if cargo == "Gerente":
+                                lista.append(Gerente(nome, int(id_func), senha))
+                            elif cargo == "Operador":
+                                lista.append(OperadorCaixa(nome, int(id_func), senha))
         except (FileNotFoundError, ValueError):
-            print("Aviso: Falha ao carregar funcionários. Verifique o ficheiro txt.")
+            print("Uai... Falha ao carregar funcionários")
         return lista
+
 
     def _carregar_clientes(self) -> list:
         """Lê o arquivo e instancia a lista de clientes."""
         lista = []
         try:
-            with open("data/clientes.txt", "r", encoding="utf-8") as f:
+            with open("data/clientes.txt", "r", encoding="utf-8-sig") as f:
                 for linha in f:
-                    if linha.strip():
-                        cpf, nome = linha.split()
-                        lista.append(Cliente(nome, cpf))
+                    linha = linha.strip()
+                    if linha:
+                        partes = linha.split(maxsplit=1)
+                        if len(partes) == 2:
+                            cpf = partes[0].strip()
+                            nome = partes[1].strip()
+                            lista.append(Cliente(nome, cpf))
         except (FileNotFoundError, ValueError):
-            print("Aviso: Falha ao carregar clientes. Verifique o arquivo txt.")
+            print("Uai... Falha ao carregar clientes")
         return lista
 
 if __name__ == "__main__":

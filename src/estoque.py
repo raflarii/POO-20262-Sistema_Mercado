@@ -118,7 +118,7 @@ class Estoque:
 
     def carregar_estoque(self):
         try:
-            with open(self.__caminho_arquivo, "r", encoding="utf-8") as arquivo:
+            with open(self.__caminho_arquivo, "r", encoding="utf-8-sig") as arquivo:
                 for linha in arquivo:
                     linha = linha.strip()
 
@@ -150,6 +150,20 @@ class Estoque:
 
         except ValueError:
             print("Erro ao ler o arquivo de estoque. Verifique seu formato.")
+
+    def repor_item(self): # adcionada a função repor_item() para o menu do operador
+        """Interface interativa que conecta o sistema.py à lógica do Estoque."""
+        print("\n--- REPOSIÇÃO DE PRODUTOS ---")
+        try:
+            id_produto = int(input("Digite o ID do produto: ").strip())
+            quantidade = float(input("Quantidade a adicionar: ").strip())
+
+            if quantidade.is_integer(): # foi adcionada estas duas linhas para converter a quantidade para inteiro caso seja um número inteiro
+                quantidade = int(quantidade)
+            
+            self.adicionar_quantidade(id_produto, quantidade)
+        except ValueError:
+            print("Erro: Digite apenas números válidos.")
 
     def salvar_estoque(self):
         try:

@@ -1,4 +1,4 @@
-1 Arroz_5kg 25.50 Unitario 20
+1 Arroz_5kg 25.50 Unitario 22
 2 Feijao_Preto 8.90 Unitario 30
 3 Tomate_Carmem 6.50 Pesavel 13
 4 Macarrao 4.20 Unitario 40

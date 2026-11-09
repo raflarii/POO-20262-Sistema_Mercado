@@ -15,7 +15,7 @@ Este repositório contém os artefatos do sistema de Totem de Supermercado, um s
 
 **Estrutura do Projeto**
 
-* `src/`: diretório com as classes principais do sistema (`produto.py`, `funcionario.py`, `estoque.py`, `caixa.py`, `sistema.py`).
+* `src/`: diretório com as classes principais do sistema (`produtos.py`, `funcionario.py`, `estoque.py`, `caixa.py`, `sistema.py`).
 * `data/`: armazena os arquivos `.txt` contendo o inventário e histórico.
 * `docs/`: pasta usada para armazenar as instruções, modelos do relatório e o relatório final.
 * `README.md`: documentação estrutural e objetivos do projeto.

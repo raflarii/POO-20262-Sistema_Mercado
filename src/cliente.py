@@ -1,7 +1,9 @@
 import os
 
 class Cliente:
+    """Representa um cliente e seu histórico de compras."""
     def __init__(self, nome: str, cpf: str): # encapsulamento dos atributos privados
+        """Inicializa os dados do cliente."""
         self.__nome = nome
         self.__cpf = cpf
         self.__total_gasto = 0.0
@@ -9,27 +11,33 @@ class Cliente:
 
     @property # uso da property para guardar os atributos 
     def nome(self):
+        """Retorna o nome do cliente."""
         return self.__nome
 
     @property
     def cpf(self):
+        """Retorna o CPF do cliente."""
         return self.__cpf
 
     @property
     def total_gasto(self):
+        """Retorna o valor acumulado das compras."""
         return self.__total_gasto
 
     def registrar_compra(self, descricao: str, valor: float):
+        """Registra uma compra e atualiza o total gasto."""
         self.__historico_compras.append(descricao)
         self.__total_gasto += valor
 
     def mostrar_historico(self):
+        """Exibe as compras realizadas pelo cliente."""
         print(f"Histórico de compras de {self.__nome}:")
         for item in self.__historico_compras:
             print(f"- {item}")
         print(f"Total gasto: R$ {self.__total_gasto:.2f}")
 
     def salvar_historico(self):
+        """Salva o histórico de compras em arquivo."""
         os.makedirs("data", exist_ok=True) 
         nome_arquivo = f"data/historico_{self.__cpf}.txt"
         
@@ -44,6 +52,7 @@ class Cliente:
             print("Erro ao salvar histórico.")
 
     def carregar_historico(self):
+        """Recupera o histórico de compras salvo."""
         nome_arquivo = f"data/historico_{self.__cpf}.txt"
         try:
             with open(nome_arquivo, "r", encoding="utf-8") as arquivo:
@@ -64,9 +73,8 @@ class Cliente:
         except (ValueError, OSError):
             print("Erro ao carregar histórico de compras do cliente.")
 
-
-
 def carregar_clientes_do_txt(caminho_arquivo: str):
+    """Lê os clientes cadastrados em um arquivo de texto."""
     lista_clientes = [] 
     
     try:

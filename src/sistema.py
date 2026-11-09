@@ -222,7 +222,7 @@ class Sistema:
             os.makedirs("data", exist_ok=True)  # cria a pasta "data" se não existir
 
             with open("data/clientes.txt", "a", encoding="utf-8") as f:
-                f.write(f"\n{cpf} {nome}")
+                f.write(f"{cpf} {nome}\n") # grava o novo cliente no arquivo
             print("\nEba! Registro concluído!")
         except IOError:
             print("\nUai... Falha ao gravar no arquivo de clientes.")

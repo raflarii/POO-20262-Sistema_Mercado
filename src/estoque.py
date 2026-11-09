@@ -2,19 +2,24 @@ from produtos import ProdutoUnitario, ProdutoPesavel
 
 # Iniciando a classe
 class Estoque:
+    """Gerencia produtos, quantidades e persistência do estoque."""
+
     def __init__(self, caminho_arquivo="data/estoque.txt"):
+        """Inicializa e carrega os dados do estoque."""
         self.__produtos = [] # Lista recebe os produtos com tuplas
         self.__quantidades = {} # Dicionário recebe a quantidade com o id
         self.__caminho_arquivo = caminho_arquivo
         self.carregar_estoque() # Carrega o arquivo e atribui os produtos para os dois selfs acima
 
     def buscar_produto(self, id_produto):
+        """Busca um produto pelo identificador."""
         for produto in self.__produtos:
             if produto.id == id_produto:
                 return produto
         return None
 
     def adicionar_produto(self, produto, quantidade):
+        """Cadastra um produto e sua quantidade."""
         if self.buscar_produto(produto.id) is not None:
             print("Erro: Já existe um produto com esse ID.")
             return
@@ -34,6 +39,7 @@ class Estoque:
         print("Produto adicionado com sucesso!")
 
     def remover_produto(self, id_produto):
+        """Remove um produto do estoque."""
         produto = self.buscar_produto(id_produto)
 
         if produto is None:
@@ -47,6 +53,7 @@ class Estoque:
         print("Produto removido com sucesso!")
 
     def consultar_quantidade(self, id_produto):
+        """Consulta a quantidade disponível de um produto."""
         if self.buscar_produto(id_produto) is None:
             print("Produto não encontrado.")
             return
@@ -54,6 +61,7 @@ class Estoque:
         return self.__quantidades[id_produto]
 
     def adicionar_quantidade(self, id_produto, quantidade):
+        """Acrescenta unidades ou peso ao estoque."""
         produto = self.buscar_produto(id_produto)
 
         if produto is None:
@@ -73,6 +81,7 @@ class Estoque:
         print("Quantidade adicionada com sucesso!")
 
     def retirar_quantidade(self, id_produto, quantidade):
+        """Retira a quantidade informada do estoque."""
         produto = self.buscar_produto(id_produto)
 
         if produto is None:
@@ -96,6 +105,7 @@ class Estoque:
         print("Quantidade retirada com sucesso!")
 
     def listar_produtos(self):
+        """Exibe os produtos e as quantidades disponíveis."""
         if not self.__produtos:
             print("O estoque está vazio.")
             return
@@ -117,6 +127,7 @@ class Estoque:
             print("--------------------------")
 
     def carregar_estoque(self):
+        """Carrega os produtos e quantidades do arquivo."""
         try:
             with open(self.__caminho_arquivo, "r", encoding="utf-8-sig") as arquivo:
                 for linha in arquivo:
@@ -160,12 +171,13 @@ class Estoque:
 
             if quantidade.is_integer(): # foi adcionada estas duas linhas para converter a quantidade para inteiro caso seja um número inteiro
                 quantidade = int(quantidade)
-            
+
             self.adicionar_quantidade(id_produto, quantidade)
         except ValueError:
             print("Erro: Digite apenas números válidos.")
 
     def salvar_estoque(self):
+        """Grava os dados atuais do estoque em arquivo."""
         try:
             with open(self.__caminho_arquivo, "w", encoding="utf-8") as arquivo:
                 for produto in self.__produtos:

@@ -2,4 +2,5 @@ Cliente: Urias (12445687098)
 Compras:
 - Sabonete: 2 un. | Tomate_Carmem: 1.5 kg | R$ 13.95 (cartao)
 - Arroz_5kg: 3 un. | Pao_Frances: 6 kg | R$ 165.90 (cartao)
-Total gasto: 179.85
+- Sabonete: 4 un. | R$ 8.40 (dinheiro)
+Total gasto: 188.25

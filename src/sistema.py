@@ -193,13 +193,23 @@ class Sistema:
                 self.pausar()
 
 
-    def _registar_cliente(self):
+    def _registrar_cliente(self):
         """Grava um novo cliente na memória e atualiza o arquivo .txt."""
         self.limpar_ecra()
         print("--- NOVO REGISTRO :D ---")
         nome = input("Nome: ").strip()
         cpf = input("CPF: ").strip()
 
+        if not nome or not cpf: # esta linha foi adcionada para evitar que o usuário registre um cliente com nome ou CPF vazio
+            print("\nErro: Nome e CPF não podem estar vazios.")
+            self.pausar()
+            return
+
+        if not cpf.isdigit(): # aqui verifica se o CPF contém apenas números, caso contrário, retorna um erro
+            print("\nErro: O CPF deve conter apenas números.")
+            self.pausar()
+            return
+        
         for cliente in self.clientes: # verifica se o CPF já existe
             if cliente.cpf == cpf:
                 print("\nErro: Este CPF já está registado.")

@@ -66,10 +66,9 @@ def carregar_clientes_do_txt(caminho_arquivo: str):
                 if not linha:
                     continue 
                 
-                # Desempacota seguindo a ordem do seu txt: CPF primeiro, Nome depois
-                cpf, nome = linha.split()
+                cpf, nome = linha.split()  # desempacota seguindo a ordem do seu txt: CPF primeiro, Nome depois
+
                 
-                # Instancia a classe passando os parâmetros na ordem que o __init__ exige
                 lista_clientes.append(Cliente(nome, cpf))
                 
     except FileNotFoundError:

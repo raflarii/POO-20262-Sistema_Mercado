@@ -1,0 +1,4 @@
+Cliente: Marisa Monte (45687698709)
+Compras:
+- Carne_Bovina: 0.8 kg | Macarrao: 3 un. | R$ 40.60 (pix)
+Total gasto: 40.60

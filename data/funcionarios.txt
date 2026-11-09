@@ -1,6 +1,6 @@
 # Nome | ID | Senha | Cargo 
 
-Larissa 3971 1234 Gerente
-Bárbara 3972 5678 Gerente
-Pedro 3973 9101 Gerente
 Cecília 3974 1213 Gerente
+Bárbara 3972 5678 Operador
+Larissa 3971 1234 Gerente
+Pedro 3973 9101 Operador

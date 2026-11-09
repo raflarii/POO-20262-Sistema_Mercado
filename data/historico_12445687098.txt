@@ -1,0 +1,4 @@
+Cliente: Urias (12445687098)
+Compras:
+- Sabonete: 2 un. | Tomate_Carmem: 1.5 kg | R$ 13.95 (cartao)
+Total gasto: 13.95

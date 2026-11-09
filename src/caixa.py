@@ -154,25 +154,39 @@ class Caixa:
                     self.visualizar_carrinho()
                     if not self.__carrinho:
                         continue
+                        
                     confirmar = input("Confirmar a compra? (s/n): ").strip().lower()
-                    if confirmar != 's':
+                    if confirmar == 'n':
+                        print("Pagamento cancelado. Os itens continuam no carrinho.")
                         continue
+                    elif confirmar != 's':
+                        print("\nErro: Comando inválido. Digite 's' para sim ou 'n' para não.")
+                        continue # agora o usuário sabe por que voltou ao menu
+
                     print("Formas de pagamento: 1. Dinheiro  2. Pix  3. Cartão")
                     pagamento = input("Escolha a forma de pagamento: ").strip()
                     formas = {'1': 'dinheiro', '2': 'pix', '3': 'cartao'}
+                    
                     if pagamento not in formas:
-                        print("Forma de pagamento inválida.")
+                        print("\nErro: Forma de pagamento inválida.")
                         continue
+                        
                     recebido = None
                     if pagamento == '1':
                         recebido = input("Valor recebido (R$): ").strip().replace(',', '.')
+                    
                     self.finalizar_compra(cliente, formas[pagamento], recebido)
+                    
+                    input("\nPressione ENTER para voltar ao menu principal...") # linha adcionada para o usuário ver o troco antes de voltar ao menu principal
                     return
+                    
                 elif opcao == 6:
                     self.__carrinho.clear()
                     print("Compra cancelada. Nenhum item foi retirado do estoque.")
                     return
                 else:
-                    print("Opção inválida.")
+                    print("\nOpção inválida.")
+                    
             except ValueError as erro:
-                print(f"Erro: {erro}")
+                print(f"\nErro: {erro}") # a pausa impede que a mensagem de 'valor insuficiente' suma instantaneamente
+                input("Pressione ENTER para continuar...")

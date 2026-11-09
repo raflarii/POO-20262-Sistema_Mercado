@@ -1,0 +1,6 @@
+Cliente: Djavan (12312312311)
+Compras:
+- Cafe: 1 un. | R$ 18.50 (dinheiro)
+- Leite_Integral: 3 un. | R$ 15.90 (cartao)
+- Macarrao: 4 un. | R$ 16.80 (pix)
+Total gasto: 51.20

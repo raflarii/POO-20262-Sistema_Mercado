@@ -221,9 +221,6 @@ class Sistema:
             import os
             os.makedirs("data", exist_ok=True)  # cria a pasta "data" se não existir
 
-            caminho_absoluto = os.path.abspath("data/clientes.txt")
-            print(f"\n[DEBUG] Gravando arquivo exatamente em: {caminho_absoluto}")
-            
             with open("data/clientes.txt", "a", encoding="utf-8") as f:
                 f.write(f"\n{cpf} {nome}")
             print("\nEba! Registro concluído!")

@@ -10,6 +10,7 @@ Este repositório contém os artefatos do sistema de Totem de Supermercado, um s
 * Persistência de Dados
 * Cadastro de Funcionários
 * Acesso dos funcionários por senha
+* Cadastro e login de clientes
 * Tratamento de erros
 
 **Estrutura do Projeto**

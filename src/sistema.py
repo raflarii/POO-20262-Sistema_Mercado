@@ -104,8 +104,6 @@ class Sistema:
 
                 if opcao == 1:
                     self._login_cliente()
-                    if self.cliente_logado:
-                        self._menu_compras_cliente()
                 elif opcao == 2:
                     self._registrar_cliente()
                 elif opcao == 3:
@@ -220,6 +218,12 @@ class Sistema:
         self.clientes.append(novo_cliente)
 
         try:
+            import os
+            os.makedirs("data", exist_ok=True)  # cria a pasta "data" se não existir
+
+            caminho_absoluto = os.path.abspath("data/clientes.txt")
+            print(f"\n[DEBUG] Gravando arquivo exatamente em: {caminho_absoluto}")
+            
             with open("data/clientes.txt", "a", encoding="utf-8") as f:
                 f.write(f"\n{cpf} {nome}")
             print("\nEba! Registro concluído!")
@@ -291,7 +295,9 @@ class Sistema:
                         if len(partes) == 2:
                             cpf = partes[0].strip()
                             nome = partes[1].strip()
-                            lista.append(Cliente(nome, cpf))
+                            cliente = Cliente(nome, cpf)
+                            cliente.carregar_historico()
+                            lista.append(cliente)
         except (FileNotFoundError, ValueError):
             print("Uai... Falha ao carregar clientes")
         return lista

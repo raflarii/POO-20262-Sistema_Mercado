@@ -47,12 +47,22 @@ class Cliente:
         nome_arquivo = f"data/historico_{self.__cpf}.txt"
         try:
             with open(nome_arquivo, "r", encoding="utf-8") as arquivo:
-                self.__historico_compras.clear()
+                historico = []
+                total_gasto = 0.0
                 for linha in arquivo:
                     if linha.startswith("- "):
-                        self.__historico_compras.append(linha[2:].strip())
+                        historico.append(linha[2:].strip())
+                    elif linha.startswith("Total gasto:"):
+                        valor = linha.split(":", 1)[1].strip()
+                        total_gasto = float(valor)
+
+                self.__historico_compras = historico
+                self.__total_gasto = total_gasto
         except FileNotFoundError:
-            print("Nenhum histórico encontrado para este cliente.")
+            # Cliente ainda não realizou compras.
+            pass
+        except (ValueError, OSError):
+            print("Erro ao carregar histórico de compras do cliente.")
 
 
 

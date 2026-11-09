@@ -1,0 +1,4 @@
+Cliente: Marisa Monte (12345678901)
+Compras:
+- Arroz_5kg: 3 un. | R$ 76.50 (cartao)
+Total gasto: 76.50

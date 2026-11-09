@@ -1,10 +1,10 @@
-1 Arroz_5kg 25.50 Unitario 22
+1 Arroz_5kg 25.50 Unitario 16
 2 Feijao_Preto 8.90 Unitario 30
 3 Tomate_Carmem 6.50 Pesavel 13
-4 Macarrao 4.20 Unitario 40
+4 Macarrao 4.20 Unitario 49
 5 Carne_Bovina 35.00 Pesavel 11.2
 6 Cebola 4.00 Pesavel 24
 7 Leite_Integral 5.30 Unitario 25
 8 Sabonete 2.10 Unitario 48
-9 Pao_Frances 14.90 Pesavel 7.5
+9 Pao_Frances 14.90 Pesavel 1.5
 10 Cafe 18.50 Unitario 17

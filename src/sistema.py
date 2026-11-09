@@ -214,18 +214,17 @@ class Sistema:
                 self.pausar()
                 return
 
-        novo_cliente = Cliente(nome, cpf)
-        self.clientes.append(novo_cliente)
-
         try:
             import os
             os.makedirs("data", exist_ok=True)  # cria a pasta "data" se não existir
 
             with open("data/clientes.txt", "a", encoding="utf-8") as f:
                 f.write(f"{cpf} {nome}\n") # grava o novo cliente no arquivo
+            novo_cliente = Cliente(nome, cpf)
+            self.clientes.append(novo_cliente)
             print("\nEba! Registro concluído!")
         except IOError:
-            print("\nUai... Falha ao gravar no arquivo de clientes.")
+            print("\nUai... Falha ao gravar no arquivo de clientes. O cadastro não foi concluído.")
 
         self.pausar()
 

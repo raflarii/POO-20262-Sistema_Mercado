@@ -5,8 +5,6 @@ Este repositório contém os artefatos do sistema de Totem de Supermercado, um s
 
 ## Funcionalidades
 
-O sistema foi dividido em módulos de responsabilidade única para atender diferentes perfis de usuário:
-
 **Controle de Acesso e Segurança**
 - Cadastro e autenticação de Clientes por CPF.
 - Autenticação de Funcionários (Gerentes e Operadores) com controle de privilégios e permissões por herança.
@@ -26,16 +24,13 @@ O sistema foi dividido em módulos de responsabilidade única para atender difer
 
 ## Estrutura do Projeto
 
-A arquitetura do repositório foi organizada para separar a lógica de negócio dos dados e da documentação:
-
-- `src/`: Diretório contendo as classes principais do sistema (`produtos.py`, `funcionario.py`, `estoque.py`, `caixa.py`, `sistema.py`).
-- `data/`: Armazena os arquivos de texto (`.txt`) atuando como o banco de dados do sistema.
-- `docs/`: Diretório destinado ao armazenamento do diagrama UML, modelos e o relatório final do projeto.
-- `README.md`: Documentação estrutural e instruções de execução.
+- `src/`: diretório contendo as classes principais do sistema (`produtos.py`, `funcionario.py`, `estoque.py`, `caixa.py`, `sistema.py`).
+- `data/`: armazena os arquivos de texto (`.txt`) atuando como o banco de dados do sistema.
+- `docs/`: diretório destinado ao armazenamento do diagrama UML, modelos e o relatório final do projeto.
+- `README.md`: documentação estrutural e instruções de execução.
 
 ## Conceitos de POO Aplicados
 
-Para a construção de um sistema robusto e seguro, foram implementados os seguintes pilares:
 - Encapsulamento: proteção de atributos sensíveis (como listas de clientes e inventário) utilizando variáveis privadas (`__`) e acesso via métodos controlados/properties.
 - Herança e Polimorfismo: especialização de classes base (ex: `Funcionario` gerando `Gerente` e `OperadorCaixa`; `Produto` gerando `ProdutoUnitario` e `ProdutoPesavel`) garantindo comportamentos específicos sem duplicação de código.
 - Classes Abstratas: utilização do módulo `abc` para impedir a instanciação de entidades genéricas e forçar a implementação de métodos nas subclasses.

@@ -49,6 +49,7 @@ Para executar o programa, é necessário ter o Python 3.x instalado na máquina 
 
 ```bash
 python3 src/sistema.py
+``` 
 
 ## Integrantes do grupo
 

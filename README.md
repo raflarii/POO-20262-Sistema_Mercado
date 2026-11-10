@@ -36,15 +36,15 @@ A arquitetura do repositório foi organizada para separar a lógica de negócio 
 ## Conceitos de POO Aplicados
 
 Para a construção de um sistema robusto e seguro, foram implementados os seguintes pilares:
-- **Encapsulamento:** proteção de atributos sensíveis (como listas de clientes e inventário) utilizando variáveis privadas (`__`) e acesso via métodos controlados/properties.
-- **Herança e Polimorfismo:** especialização de classes base (ex: `Funcionario` gerando `Gerente` e `OperadorCaixa`; `Produto` gerando `ProdutoUnitario` e `ProdutoPesavel`) garantindo comportamentos específicos sem duplicação de código.
-- **Classes Abstratas:** utilização do módulo `abc` para impedir a instanciação de entidades genéricas e forçar a implementação de métodos nas subclasses.
-- **Tratamento de Exceções:** blocos `try/except` distribuídos de forma estratégica para capturar erros de digitação (ValueError) e falhas de leitura de arquivos (IOError/FileNotFoundError), impedindo a quebra do sistema.
+- Encapsulamento: proteção de atributos sensíveis (como listas de clientes e inventário) utilizando variáveis privadas (`__`) e acesso via métodos controlados/properties.
+- Herança e Polimorfismo: especialização de classes base (ex: `Funcionario` gerando `Gerente` e `OperadorCaixa`; `Produto` gerando `ProdutoUnitario` e `ProdutoPesavel`) garantindo comportamentos específicos sem duplicação de código.
+- Classes Abstratas: utilização do módulo `abc` para impedir a instanciação de entidades genéricas e forçar a implementação de métodos nas subclasses.
+- Tratamento de Exceções: blocos `try/except` distribuídos de forma estratégica para capturar erros de digitação (ValueError) e falhas de leitura de arquivos (IOError/FileNotFoundError), impedindo a quebra do sistema.
 
 Para executar o programa, é necessário ter o Python 3.x instalado na máquina e de um terminal com suporte a códigos ANSI para limpeza de tela dinâmica. Abaixo, segue o passo a passo para realizar a execução do projeto: 
 
 1. Clone este repositório ou faça o download dos arquivos.
-2. Abra o terminal e navegue até a **raiz do projeto** (a pasta que contém `src` e `data`).
+2. Abra o terminal e navegue até a raiz do projeto (a pasta que contém `src` e `data`).
 3. Execute o comando abaixo para iniciar o sistema:
 
 ```bash

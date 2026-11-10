@@ -1,0 +1,4 @@
+Cliente: Djavan (1231231231)
+Compras:
+- Tomate_Carmem: 4 kg | R$ 26.00 (dinheiro)
+Total gasto: 26.00

@@ -31,10 +31,10 @@ Este repositório contém os artefatos do sistema de Totem de Supermercado, um s
 
 ## Conceitos de POO Aplicados
 
-- Encapsulamento: proteção de atributos sensíveis (como listas de clientes e inventário) utilizando variáveis privadas (`__`) e acesso via métodos controlados/properties.
-- Herança e Polimorfismo: especialização de classes base (ex: `Funcionario` gerando `Gerente` e `OperadorCaixa`; `Produto` gerando `ProdutoUnitario` e `ProdutoPesavel`) garantindo comportamentos específicos sem duplicação de código.
+- Encapsulamento: proteção de atributos sensíveis utilizando variáveis privadas e acesso via métodos controlados/properties.
+- Herança e Polimorfismo: especialização de classes base, o que garante comportamentos específicos sem duplicação de código.
 - Classes Abstratas: utilização do módulo `abc` para impedir a instanciação de entidades genéricas e forçar a implementação de métodos nas subclasses.
-- Tratamento de Exceções: blocos `try/except` distribuídos de forma estratégica para capturar erros de digitação (ValueError) e falhas de leitura de arquivos (IOError/FileNotFoundError), impedindo a quebra do sistema.
+- Tratamento de Exceções: blocos `try/except` distribuídos de forma estratégica para capturar erros de digitação e falhas de leitura de arquivos, impedindo a quebra do sistema.
 
 Para executar o programa, é necessário ter o Python 3.x instalado na máquina e de um terminal com suporte a códigos ANSI para limpeza de tela dinâmica. Abaixo, segue o passo a passo para realizar a execução do projeto: 
 

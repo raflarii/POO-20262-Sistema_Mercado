@@ -36,10 +36,10 @@ A arquitetura do repositório foi organizada para separar a lógica de negócio 
 ## Conceitos de POO Aplicados
 
 Para a construção de um sistema robusto e seguro, foram implementados os seguintes pilares:
-- **Encapsulamento:** Proteção de atributos sensíveis (como listas de clientes e inventário) utilizando variáveis privadas (`__`) e acesso via métodos controlados/properties.
-- **Herança e Polimorfismo:** Especialização de classes base (ex: `Funcionario` gerando `Gerente` e `OperadorCaixa`; `Produto` gerando `ProdutoUnitario` e `ProdutoPesavel`) garantindo comportamentos específicos sem duplicação de código.
-- **Classes Abstratas:** Utilização do módulo `abc` para impedir a instanciação de entidades genéricas e forçar a implementação de métodos nas subclasses.
-- **Tratamento de Exceções:** Blocos `try/except` distribuídos estrategicamente para capturar erros de digitação (ValueError) e falhas de leitura de arquivos (IOError/FileNotFoundError), impedindo a quebra do sistema.
+- **Encapsulamento:** proteção de atributos sensíveis (como listas de clientes e inventário) utilizando variáveis privadas (`__`) e acesso via métodos controlados/properties.
+- **Herança e Polimorfismo:** especialização de classes base (ex: `Funcionario` gerando `Gerente` e `OperadorCaixa`; `Produto` gerando `ProdutoUnitario` e `ProdutoPesavel`) garantindo comportamentos específicos sem duplicação de código.
+- **Classes Abstratas:** utilização do módulo `abc` para impedir a instanciação de entidades genéricas e forçar a implementação de métodos nas subclasses.
+- **Tratamento de Exceções:** blocos `try/except` distribuídos de forma estratégica para capturar erros de digitação (ValueError) e falhas de leitura de arquivos (IOError/FileNotFoundError), impedindo a quebra do sistema.
 
 Para executar o programa, é necessário ter o Python 3.x instalado na máquina e de um terminal com suporte a códigos ANSI para limpeza de tela dinâmica. Abaixo, segue o passo a passo para realizar a execução do projeto: 
 
@@ -49,3 +49,11 @@ Para executar o programa, é necessário ter o Python 3.x instalado na máquina 
 
 ```bash
 python3 src/sistema.py
+
+## Integrantes do grupo
+
+- Bárbara Stella Sena Barbosa
+- Cecilia Scofield Carneiro 
+- Larissa Rafaele Vieira Silva
+- Pedro Azevedo Andrade
+

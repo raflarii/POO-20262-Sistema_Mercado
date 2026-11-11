@@ -39,7 +39,7 @@ Este repositório contém os artefatos do sistema de Totem de Supermercado, um s
 
 ## Como rodar o programa?
 
-Para executar o programa, é necessário ter o Python 3 instalado na máquina e de um terminal com suporte a códigos ANSI para limpeza de tela dinâmica. Abaixo, segue o passo a passo para realizar a execução do projeto: 
+Para executar o programa, é necessário ter o Python 3 instalado na máquina e de um terminal com suporte a códigos ANSI. Abaixo, segue o passo a passo para realizar a execução do projeto: 
 
 1. Extraia o arquivo .zip e abra projeto no VS Code.
 2. Abra o terminal e navegue até a raiz do projeto.
